@@ -1,0 +1,100 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* --- MOBILE FIRST (Estilos Base) --- */
+
+/* Header con FLEXBOX */
+.main-header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    align-items: center;
+    gap: 10px;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Contenedor Principal con CSS GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Área de contenido con FLEXBOX */
+.content-area {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cajas bajen si no caben */
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 100%; /* Ocupa todo el ancho en móvil */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+    background: #ecf0f1;
+    padding: 20px;
+    border-left: 4px solid #3498db;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    background: #2c3e50;
+    color: white;
+    margin-top: 20px;
+}
+
+/* --- MEDIA QUERIES (Para Escritorio) --- */
+
+@media (min-width: 768px) {
+    .main-header {
+        flex-direction: row; /* Alineación horizontal en desktop */
+        justify-content: space-between;
+        padding: 1rem 5%;
+    }
+
+    .grid-container {
+        /* Definimos dos columnas: Contenido principal (3 partes) y Sidebar (1 parte) */
+        grid-template-columns: 3fr 1fr;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .hero {
+        grid-column: 1 / -1; /* Ocupa todas las columnas del grid */
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .card {
+        flex: 1 1 calc(33.333% - 20px); /* Tres tarjetas por fila en escritorio */
+    }
+}
