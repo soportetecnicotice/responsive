@@ -1,0 +1,2 @@
+# responsive
+Practica para responsividad
